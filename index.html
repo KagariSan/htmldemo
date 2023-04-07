@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>HTML Table DEMO</title>
     </head>
+    <style>
+        table, th, td {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+    </style>
     <body>
         Table demo
+        <table>
+            <thead>
+            <tr>
+                <th colspan="2">Identity</th>
+                <th colspan="3">Book Data</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Published Date</th>
+                <th>Author</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>NX160</td>
+                <td>100 Bài tập lập trình mẫu giáo</td>
+                <td>Chương trình lập trình, cho lập trình viên mẫu giáo</td>
+                <td rowspan="2">1991</td>
+                <td>Lập trình viên 10X</td>
+            </tr>
+            <tr>
+                <td>NX160</td>
+                <td>100 Bài tập lập trình mẫu giáo</td>
+                <td>Chương trình lập trình, cho lập trình viên mẫu giáo</td>
+                <td>Lập trình viên 10X</td>
+            </tr>
+            </tbody>
+            <caption>Sách lập trình nên đọc</caption>
+        </table>
     </body>
 </html>
