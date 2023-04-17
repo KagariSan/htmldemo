@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+  <style>
+     input:invalid {
+       border-color: red;
+       color: red;
+     }
+
+      input.invalid {
+        border-color: red;
+        color: red;
+      }
+
+  </style>
+</head>
+<body>
+  <h2>Required validation with HTML</h2>
+  <form>
+    <label for="iLikeHTML">What animal you like?</label>
+    <input type="text" name="iLike" id="iLikeHTML" required>
+    <button>Submit</button>
+  </form>
+
+  <h2>Required validation with HTML</h2>
+  <form novalidate id="form2" >
+    <label for="iLike">What animal you like?</label>
+    <input type="text" name="iLike" id="iLike" required minlength="5">
+    <label style="color: red" id="errorMessage"></label>
+    <button>Submit</button>
+  </form>
+
+  <script>
+    // querySelector() - search nhu selector cua css
+    // getElementById - search by id
+    // getElementByClasses - search by class
+    // getElementByTagName - search by tag name (div, form, button)
+    const form2 = document.getElementById("form2");
+    const inputILike = document.getElementById("iLike");
+    const errorMessage = document.getElementById("errorMessage");
+    form2.addEventListener("submit", (event) => {
+      // thu cong
+
+      // goi tinh nang validate cua trinh duyet
+      if (!inputILike.validity.valid || inputILike.value.indexOf("a") < 0) {
+        showError();
+        // Dung tinh nang mac dinh
+        event.preventDefault();
+      }
+    })
+
+    function showError() {
+      inputILike.className = "";
+      if (inputILike.validity.valueMissing) {
+          errorMessage.textContent = "Input Can't Be Empty!";
+          inputILike.focus();
+        } else if (inputILike.validity.tooShort) {
+          errorMessage.textContent = "Input Need To Be At Least 10 Chars Length!";
+          inputILike.focus();
+        } else if (inputILike.value.indexOf("a") < 0) {
+          inputILike.className = "invalid";
+          errorMessage.textContent = "Input need contain at least one \"a\" character";
+          inputILike.focus();
+        }
+    }
+
+    inputILike.addEventListener("input", () => {
+      showError();
+    })
+
+  </script>
+</body>
+</html>

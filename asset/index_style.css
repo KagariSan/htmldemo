@@ -1,0 +1,71 @@
+.color-red {
+    color: red !important;
+}
+
+#part1 #part2 {
+
+}
+
+* {
+    border: 1px solid;
+}
+
+#part2 {
+
+}
+
+.bold {
+    font-weight: bold;
+}
+
+div p {
+    font-style: italic;
+}
+
+/*div > p {*/
+/*    background-color: green;*/
+/*}*/
+
+div + p {
+    background-color: blue;
+}
+
+div ~ p {
+    background-color: yellow;
+}
+
+p:hover {
+    color: white;
+}
+
+/*p::after {*/
+/*    content: "test";*/
+/*    display: block;*/
+/*}*/
+
+a[href$="html"] {
+    color: #ffffff;
+    color: white;
+    color: rgb(255, 255, 255);
+    color: hsl(9deg, 100%, 100%);
+    color: hsl(9deg, 100%, 100%, 50%)
+}
+/*div p {*/
+/*    margin-top: 10px;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.background {
+    background: rgb(34,193,195);
+    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(201,59,59,1) 55%, rgba(253,187,45,1) 100%);
+    background-image: url("https://image.vtc.vn/resize/th/upload/2021/12/30/hotgirl4-19565922.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+}
