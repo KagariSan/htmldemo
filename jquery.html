@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQueryDemo</title>
+    <script src="asset/js/jquery-3.6.4.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>-->
+
+    <script>
+        $(document).ready(function() {
+            $("#demoP").text("Hello JQuery!");
+            // document.getElementById("demoP").addEventListener("click", () => {
+            //     document.getElementById("demoP").innerHTML = "Clicked";
+            // })
+            $("#demoP").click(function () {
+                $(this).text("Clicked");
+            })
+
+            // document.getElementById("demoP").addEventListener("dblclick", () => {
+            //     document.getElementById("demoP").style.display = "none";
+            // })
+            $("#demoP").dblclick(function () {
+                // $(this).hide();
+                // $(this).css("visibility", "hidden");
+                $(this).fadeOut(3000, function () {
+                    $(this).fadeIn(3000, function () {
+                        $(this).fadeOut(3000);
+                    });
+                })
+            })
+
+            $("#demoP").animate({
+                fontSize: "25px",
+                marginLeft: "150px"
+            }, 3000, "swing", function () {
+                $(this).animate({
+                    fontSize: "18px",
+                    marginLeft: "0px"
+                }, 5000, "linear")
+            })
+
+            $("#demoP").before("<h1>Before</h1>")
+            $("#demoP").prepend("<h2>Prepend</h2>")
+            // alert($("#demoP").text())
+        });
+        // $(function() {});
+    </script>
+</head>
+<body>
+    <p>A</p>
+    <p id="demoP"></p>
+    <p>B</p>
+</body>
+</html>

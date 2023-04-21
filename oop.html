@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<body>
+   <script>
+       const person = {
+           name: {
+               firstName: "Nam",
+               lastName: "Nguyen",
+           },
+           age: 40,
+           "this-is-ok": "test data",
+           intro: function () {
+               console.log(`${this.name.firstName} ${this.name.lastName} is ${this.age} years old!`)
+           }
+       };
+       const persons = [person, person];
+        // . to access data
+       // ["keyname"] to access data
+       person.intro();
+       // [] to access array
+       persons[0].name.firstName;
+       person["this-is-ok"];
+       const access = "name";
+       person[access]["firstName"];
+
+       // set data
+       person.name = {
+           firstName: "Minh",
+           lastName: "Dang"
+       }
+       person.intro();
+       // set function
+       person.introV2 = function () {
+           console.log("Not impl yet!");
+           console.log(`${this.name.firstName} ${this.name.lastName} is ${this.age} years old!`)
+       }
+       person.introV2();
+       // this
+       // refer den doi tuong hien tai ma cai code duoc viet ben trong day // Code duoc viet ben trong
+
+       function createPerson(firstName, lastName, age) {
+           const person = {age};
+           person.name = {
+               firstName,
+               lastName
+           }
+
+           person.intro = function () {
+               console.log(`${this.name.firstName} ${this.name.lastName} is ${this.age} years old!`)
+           }
+
+           return person;
+       }
+
+       const phuong = createPerson("Phuong", "Nguyen", 30);
+       phuong.intro();
+
+       function Person(firstName, lastName, age) {
+           this.age = age;
+           this.name = {
+               firstName,
+               lastName
+           }
+           this.intro = function () {
+               console.log(`${this.name.firstName} ${this.name.lastName} is ${this.age} years old!`)
+           }
+       }
+
+       const tuan = new Person("Tuan", "Pham", 20);
+       tuan.intro();
+
+       // Prototypes - thua ke trong javascript
+       Object.getPrototypeOf(new Date());
+       const date = new Date();
+       date.toString = function () {
+           return "Not normal to String";
+       }
+       console.log(date.toString());
+      // Create prototype
+        const objectCreatePerson = Object.create(person);
+
+       // prototype properties
+       Object.assign(Person.prototype, {
+           printMe() {
+               console.log(`hello, my name is ${this.name.firstName}`);
+           }
+       });
+       const trang = new Person("trang", "minh", 21);
+       trang.printMe();
+       // check it's own by object
+       console.log(Object.hasOwn(trang, "printMe"));
+
+
+       class PersonByClass extends Person {
+           name;
+           age;
+           #secret;
+           constructor(name, age, secret) {
+               super(name, name, age);
+               this.name = name;
+               this.age = age;
+               this.#secret = secret;
+           }
+
+           intro() {
+               console.log(`Hi! ${this.name}, ${this.age}`);
+           }
+
+           getSecret() {
+               return this.#secret;
+           }
+       }
+       const personByClass = new PersonByClass("name", 30, "screte");
+       personByClass.intro();
+
+   </script>
+</body>
+</html>
