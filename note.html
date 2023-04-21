@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Note</title>
+    <script src="asset/js/jquery-3.6.4.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("button#addBtn").click(function () {
+               const value = $("input").val();
+               if (value) {
+                   $("ul").append(`<li><span>${value}</span> <button onclick="doneIt(event)">Done</button><button onclick="removeIt(event)">Remove</button> </li>`)
+               }
+               $("input").val("");
+           }) ;
+        });
+
+
+        function doneIt(event) {
+            $(event.target).prev().css("text-decoration", "line-through");
+            $(event.target).hide();
+        }
+
+        function removeIt(event) {
+            $(event.target).parent().remove();
+        }
+    </script>
+    </script>
 </head>
 <body>
   <h1>Note</h1>
   <ul>
-    <li>Lam Bai Tap JQUERY! <button>Done</button><button>Remove</button> </li>
-      <li> <span style="text-decoration: line-through  ">Lam viec nha</span><button>Remove</button>  </li>
+    <li><span>Bai Tap JQUERY! </span> <button onclick="doneIt(event)">Done</button><button onclick="removeIt(event)">Remove</button> </li>
+      <li> <span style="text-decoration: line-through  ">Lam viec nha</span><button  onclick="removeIt(event)">Remove</button>  </li>
   </ul>
 
   <span> <label>Add new note</label>
-      <input type="text"> <button>Add</button>
+      <input type="text"> <button id="addBtn">Add</button>
   </span>
 
 </body>
